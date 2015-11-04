@@ -15,9 +15,9 @@ angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/'});
 }])
-.factory("Content", function($resource) {
+.factory("Content", ['$resource', function($resource) {
     return $resource("http://farnsworth.zyring.com/categories/:category");
-})
+}])
 .run(['$rootScope', function($rootScope){
     $rootScope.$on("$routeChangeSuccess", function(e, data) {
         $rootScope.controller = data.controller;
