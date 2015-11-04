@@ -1,0 +1,18 @@
+<h1>{{pageTitle}}</h1>
+
+&nbsp;
+
+<div class="media" ng-repeat="title in content.items">
+  <div class="media-left media-middle">
+    <a ng-href="{{content.items[$index].link}}">
+      <img ng-if="(content.items[$index].thumbnail && content.items[$index].thumbnail !== 'none')" class="media-object" ng-src="{{content.items[$index].thumbnail}}" width="150" alt="thumbnail">
+      <img ng-if="(!content.items[$index].thumbnail || content.items[$index].thumbnail === 'none')" class="media-object" src="http://placehold.it/300/300" width="150" alt="thumbnail">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{content.items[$index].title}}</h4>
+    <p ng-if="(content.items[$index].summary.length > 7)">{{content.items[$index].summary.substring(0, 250)}}...</p>
+    <a ng-href="{{content.items[$index].link}}">Read More</a>
+  </div>
+  <hr>
+</div>
